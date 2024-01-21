@@ -505,7 +505,7 @@
     (property "Value" "54k9" (at 176.7586 99.4922 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 175.26 97.79 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 175.26 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 175.26 97.79 0)
@@ -524,7 +524,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "R4") (unit 1)
+          (reference "R9") (unit 1)
         )
       )
     )
@@ -591,7 +591,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#PWR036") (unit 1)
+          (reference "#PWR040") (unit 1)
         )
       )
     )
@@ -606,7 +606,7 @@
     (property "Value" "100k" (at 120.65 95.0509 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 120.65 90.17 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 120.65 90.17 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 120.65 90.17 0)
@@ -625,7 +625,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "R3") (unit 1)
+          (reference "R8") (unit 1)
         )
       )
     )
@@ -730,7 +730,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#PWR031") (unit 1)
+          (reference "#PWR035") (unit 1)
         )
       )
     )
@@ -760,7 +760,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#PWR032") (unit 1)
+          (reference "#PWR036") (unit 1)
         )
       )
     )
@@ -790,7 +790,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#FLG03") (unit 1)
+          (reference "#FLG04") (unit 1)
         )
       )
     )
@@ -805,7 +805,7 @@
     (property "Value" "10k" (at 176.7586 107.1122 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 175.26 105.41 0)
+    (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 175.26 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 175.26 105.41 0)
@@ -824,7 +824,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "R5") (unit 1)
+          (reference "R10") (unit 1)
         )
       )
     )
@@ -885,7 +885,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#PWR033") (unit 1)
+          (reference "#PWR037") (unit 1)
         )
       )
     )
@@ -950,7 +950,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "D3") (unit 1)
+          (reference "D5") (unit 1)
         )
       )
     )
@@ -980,7 +980,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#PWR030") (unit 1)
+          (reference "#PWR034") (unit 1)
         )
       )
     )
@@ -1010,7 +1010,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#PWR035") (unit 1)
+          (reference "#PWR039") (unit 1)
         )
       )
     )
@@ -1040,7 +1040,7 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
-          (reference "#PWR034") (unit 1)
+          (reference "#PWR038") (unit 1)
         )
       )
     )

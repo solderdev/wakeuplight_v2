@@ -133,6 +133,71 @@
         )
       )
     )
+    (symbol "Device:D_Schottky" (pin_numbers hide) (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
+      (property "Reference" "D" (at 0 2.54 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "D_Schottky" (at 0 -2.54 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "~" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "diode Schottky" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "Schottky diode" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "D_Schottky_0_1"
+        (polyline
+          (pts
+            (xy 1.27 0)
+            (xy -1.27 0)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 1.27 1.27)
+            (xy 1.27 -1.27)
+            (xy -1.27 0)
+            (xy 1.27 1.27)
+          )
+          (stroke (width 0.254) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -1.905 0.635)
+            (xy -1.905 1.27)
+            (xy -1.27 1.27)
+            (xy -1.27 -1.27)
+            (xy -0.635 -1.27)
+            (xy -0.635 -0.635)
+          )
+          (stroke (width 0.254) (type default))
+          (fill (type none))
+        )
+      )
+      (symbol "D_Schottky_1_1"
+        (pin passive line (at -3.81 0 0) (length 2.54)
+          (name "K" (effects (font (size 1.27 1.27))))
+          (number "1" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 3.81 0 180) (length 2.54)
+          (name "A" (effects (font (size 1.27 1.27))))
+          (number "2" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
     (symbol "Transistor_FET:PSMN5R2-60YL" (pin_names hide) (in_bom yes) (on_board yes)
       (property "Reference" "Q" (at 6.35 2.54 0)
         (effects (font (size 1.27 1.27)))
@@ -493,11 +558,17 @@
   (junction (at 134.62 91.44) (diameter 0) (color 0 0 0 0)
     (uuid 01ad7198-4dc1-436b-ba85-72cf6cfabdf1)
   )
+  (junction (at 185.42 87.63) (diameter 0) (color 0 0 0 0)
+    (uuid 471f214e-bb9e-4c0e-a1ab-2b76322482b3)
+  )
   (junction (at 158.75 92.71) (diameter 0) (color 0 0 0 0)
     (uuid 5e8973eb-5f3c-43fa-94ea-5a7c22887f42)
   )
   (junction (at 158.75 90.17) (diameter 0) (color 0 0 0 0)
     (uuid c56d1119-bc20-4328-a12a-4224c50e9a5c)
+  )
+  (junction (at 185.42 95.25) (diameter 0) (color 0 0 0 0)
+    (uuid c967310f-18a2-4115-9ac1-60b0659fbcb1)
   )
 
   (wire (pts (xy 158.75 92.71) (xy 158.75 95.25))
@@ -544,9 +615,13 @@
     (stroke (width 0) (type default))
     (uuid 68dea1f8-5581-42f9-b3c2-e90dbb24ed23)
   )
-  (wire (pts (xy 158.75 87.63) (xy 194.31 87.63))
+  (wire (pts (xy 158.75 87.63) (xy 185.42 87.63))
     (stroke (width 0) (type default))
     (uuid 7462144f-4177-4f6e-b6f6-bc85277be215)
+  )
+  (wire (pts (xy 185.42 87.63) (xy 194.31 87.63))
+    (stroke (width 0) (type default))
+    (uuid 7859eade-521c-4f14-a400-27b706422744)
   )
   (wire (pts (xy 194.31 95.25) (xy 194.31 92.71))
     (stroke (width 0) (type default))
@@ -564,7 +639,7 @@
     (stroke (width 0) (type default))
     (uuid b8e09dbb-d2fc-43d6-bf17-8c5c33423091)
   )
-  (wire (pts (xy 158.75 95.25) (xy 194.31 95.25))
+  (wire (pts (xy 158.75 95.25) (xy 185.42 95.25))
     (stroke (width 0) (type default))
     (uuid bdef6c7c-818c-44f4-b4fa-e9c63435c3c7)
   )
@@ -575,6 +650,10 @@
   (wire (pts (xy 109.22 95.25) (xy 115.57 95.25))
     (stroke (width 0) (type default))
     (uuid cf4fcf45-eb32-4c58-a090-fec8afb0e174)
+  )
+  (wire (pts (xy 185.42 95.25) (xy 194.31 95.25))
+    (stroke (width 0) (type default))
+    (uuid daa5ac95-881c-4be5-a37d-50bee8794311)
   )
   (wire (pts (xy 194.31 92.71) (xy 195.58 92.71))
     (stroke (width 0) (type default))
@@ -610,7 +689,7 @@
   (symbol (lib_id "power:GND") (at 142.24 91.44 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0b50e05d-2b63-42ca-97c2-9fa164313407)
-    (property "Reference" "#PWR022" (at 148.59 91.44 0)
+    (property "Reference" "#PWR026" (at 148.59 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 145.415 91.44 90)
@@ -626,10 +705,10 @@
     (instances
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "#PWR022") (unit 1)
+          (reference "#PWR026") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "#PWR027") (unit 1)
+          (reference "#PWR031") (unit 1)
         )
       )
     )
@@ -702,7 +781,7 @@
   (symbol (lib_id "power:+5V") (at 134.62 87.63 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3c00553b-22f9-43dc-8d00-e2f167810667)
-    (property "Reference" "#PWR020" (at 134.62 91.44 0)
+    (property "Reference" "#PWR024" (at 134.62 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+5V" (at 134.62 83.4969 0)
@@ -718,10 +797,10 @@
     (instances
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "#PWR020") (unit 1)
+          (reference "#PWR024") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "#PWR025") (unit 1)
+          (reference "#PWR029") (unit 1)
         )
       )
     )
@@ -730,7 +809,7 @@
   (symbol (lib_id "power:GND") (at 134.62 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4376e677-2b78-48a6-a5c7-a71a2080e7bf)
-    (property "Reference" "#PWR021" (at 134.62 110.49 0)
+    (property "Reference" "#PWR025" (at 134.62 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 134.62 108.2731 0)
@@ -746,10 +825,10 @@
     (instances
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "#PWR021") (unit 1)
+          (reference "#PWR025") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "#PWR026") (unit 1)
+          (reference "#PWR030") (unit 1)
         )
       )
     )
@@ -783,10 +862,10 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "J9") (unit 1)
+          (reference "J7") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "J10") (unit 1)
+          (reference "J9") (unit 1)
         )
       )
     )
@@ -795,7 +874,7 @@
   (symbol (lib_id "power:GND") (at 154.94 104.14 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 61b957fe-3a60-4f9c-95d9-3727485cce78)
-    (property "Reference" "#PWR024" (at 154.94 110.49 0)
+    (property "Reference" "#PWR028" (at 154.94 110.49 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 154.94 108.2731 0)
@@ -811,10 +890,10 @@
     (instances
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "#PWR024") (unit 1)
+          (reference "#PWR028") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "#PWR029") (unit 1)
+          (reference "#PWR033") (unit 1)
         )
       )
     )
@@ -823,7 +902,7 @@
   (symbol (lib_id "power:+24V") (at 154.94 88.9 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8050594b-4c8e-4c8d-8f29-b7c049b63868)
-    (property "Reference" "#PWR023" (at 154.94 92.71 0)
+    (property "Reference" "#PWR027" (at 154.94 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+24V" (at 154.94 84.7669 0)
@@ -839,10 +918,42 @@
     (instances
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "#PWR023") (unit 1)
+          (reference "#PWR027") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "#PWR028") (unit 1)
+          (reference "#PWR032") (unit 1)
+        )
+      )
+    )
+  )
+
+  (symbol (lib_id "Device:D_Schottky") (at 185.42 91.44 270) (unit 1)
+    (in_bom yes) (on_board yes) (dnp no)
+    (uuid abba33b1-68d3-4687-9b02-2c90df3f79a0)
+    (property "Reference" "D3" (at 187.452 89.9104 90)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Value" "SS16_R2_00001 1A, 42V" (at 180.34 97.79 90)
+      (effects (font (size 1.27 1.27)) (justify left))
+    )
+    (property "Footprint" "Diode_SMD:D_SMA" (at 185.42 91.44 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Datasheet" "~" (at 185.42 91.44 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "OC_MOUSER" "241-SS16_R2_00001" (at 185.42 91.44 90)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (pin "1" (uuid fde41182-6b44-4d71-976a-9d12ff2199e6))
+    (pin "2" (uuid 03f240a9-f46e-4b10-a5a5-d36c25ccd9c2))
+    (instances
+      (project "wakeuplight"
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
+          (reference "D3") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
+          (reference "D4") (unit 1)
         )
       )
     )
@@ -851,7 +962,7 @@
   (symbol (lib_id "Transistor_FET:PSMN5R2-60YL") (at 152.4 99.06 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d4687464-c808-4651-8b54-fbb1ac820314)
-    (property "Reference" "Q1" (at 157.607 97.8479 0)
+    (property "Reference" "Q2" (at 157.607 97.8479 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "PSMN1R2-30YLC" (at 157.607 100.2721 0)
@@ -860,7 +971,7 @@
     (property "Footprint" "Package_TO_SOT_SMD:LFPAK56" (at 156.21 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PSMN5R2-60YL.pdf" (at 152.4 99.06 0)
+    (property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/PSMN1R2-30YLC.pdf" (at 152.4 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid 9b29bac8-5765-4db9-8ab2-6ec2f8f282a5))
@@ -871,10 +982,10 @@
     (instances
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "Q1") (unit 1)
+          (reference "Q2") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "Q2") (unit 1)
+          (reference "Q3") (unit 1)
         )
       )
     )
@@ -908,10 +1019,10 @@
       )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/aec5d3bd-aa51-47d6-960a-d96f772ef2bb"
-          (reference "J5") (unit 1)
+          (reference "J6") (unit 1)
         )
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/556be24b-5121-4445-bd87-af03e884b8bf"
-          (reference "J6") (unit 1)
+          (reference "J8") (unit 1)
         )
       )
     )
