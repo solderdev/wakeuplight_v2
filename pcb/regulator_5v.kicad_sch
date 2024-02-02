@@ -366,6 +366,9 @@
   (junction (at 201.93 90.17) (diameter 0) (color 0 0 0 0)
     (uuid 8c16363c-6b6e-4df7-b3aa-485e01761882)
   )
+  (junction (at 124.46 90.17) (diameter 0) (color 0 0 0 0)
+    (uuid 9c13a1e1-90a5-49a3-aec9-076b4e234e15)
+  )
   (junction (at 158.75 90.17) (diameter 0) (color 0 0 0 0)
     (uuid e8fa5b22-c3cf-44d3-9b54-0a0d23c4c238)
   )
@@ -384,6 +387,10 @@
   (wire (pts (xy 175.26 90.17) (xy 187.96 90.17))
     (stroke (width 0) (type default))
     (uuid 27afe0ad-6c73-46ce-b020-3f647576c67f)
+  )
+  (wire (pts (xy 124.46 90.17) (xy 125.73 90.17))
+    (stroke (width 0) (type default))
+    (uuid 32232a93-481f-4ca1-8247-f60489a2369c)
   )
   (wire (pts (xy 90.17 85.09) (xy 95.25 85.09))
     (stroke (width 0) (type default))
@@ -425,6 +432,10 @@
     (stroke (width 0) (type default))
     (uuid 70b5b43f-a656-4a6a-9be6-ab4eebc92222)
   )
+  (wire (pts (xy 116.84 102.87) (xy 124.46 102.87))
+    (stroke (width 0) (type default))
+    (uuid 722f53a1-89cf-479f-8d02-6b37384d9dc0)
+  )
   (wire (pts (xy 158.75 90.17) (xy 158.75 91.44))
     (stroke (width 0) (type default))
     (uuid 76c0c756-c77a-4f08-a4f5-4d73104123ad)
@@ -453,6 +464,10 @@
     (stroke (width 0) (type default))
     (uuid cba95864-0afa-4291-96c5-c7b09b30ea1b)
   )
+  (wire (pts (xy 124.46 90.17) (xy 124.46 102.87))
+    (stroke (width 0) (type default))
+    (uuid cbd77b9a-447e-4438-8f6b-8fa4fb6397a0)
+  )
   (wire (pts (xy 114.3 85.09) (xy 125.73 85.09))
     (stroke (width 0) (type default))
     (uuid cd7eb46f-daa4-41a2-b211-6c4ecb6e09f4)
@@ -469,7 +484,7 @@
     (stroke (width 0) (type default))
     (uuid e2b80813-5361-4518-a401-5f43cc95e4e5)
   )
-  (wire (pts (xy 123.19 90.17) (xy 125.73 90.17))
+  (wire (pts (xy 123.19 90.17) (xy 124.46 90.17))
     (stroke (width 0) (type default))
     (uuid e9511056-86e5-4cec-933b-3eb78749432f)
   )
@@ -495,11 +510,15 @@
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 412d6c52-32b8-4181-bd7a-df0f40475bb9)
   )
+  (hierarchical_label "~{SHDN}" (shape input) (at 116.84 102.87 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 6ae6b385-0872-4c5a-9f11-80ca6a76cd87)
+  )
 
   (symbol (lib_id "Device:R_Small") (at 175.26 97.79 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1f6018c5-6f6b-400a-85b0-94d61ff747dc)
-    (property "Reference" "R5" (at 176.7586 96.9553 0)
+    (property "Reference" "R9" (at 176.7586 96.9553 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "54k9" (at 176.7586 99.4922 0)
@@ -514,17 +533,12 @@
     (pin "1" (uuid 6dcb5374-557b-452f-acd4-c8016805b5bc))
     (pin "2" (uuid aac57fb8-c6e6-4179-89e8-23feb3f41963))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347"
-          (reference "R5") (unit 1)
-        )
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "R15") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "R9") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "R12") (unit 1)
         )
       )
     )
@@ -533,7 +547,7 @@
   (symbol (lib_id "Device:C_Small") (at 95.25 90.17 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 369eb97b-c4bb-4126-b3ea-9013bbfa6c7d)
-    (property "Reference" "C3" (at 92.926 88.9642 0)
+    (property "Reference" "C5" (at 92.926 88.9642 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1uF 35V" (at 92.926 91.3884 0)
@@ -551,17 +565,12 @@
     (pin "1" (uuid de7c1964-d527-4140-8b47-b4a8fa3e1666))
     (pin "2" (uuid 3f1d881a-cec1-4db6-abf8-a6513b486ca0))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347"
-          (reference "C3") (unit 1)
-        )
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "C10") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "C5") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "C12") (unit 1)
         )
       )
     )
@@ -570,7 +579,7 @@
   (symbol (lib_id "power:GND") (at 201.93 97.79 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 37dc10d5-2475-42d5-9f18-01f147eb4f5e)
-    (property "Reference" "#PWR045" (at 201.93 104.14 0)
+    (property "Reference" "#PWR040" (at 201.93 104.14 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 201.93 101.9231 0)
@@ -584,14 +593,12 @@
     )
     (pin "1" (uuid 1ac0e693-7a77-41fb-be12-37880aaa8644))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#PWR045") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#PWR040") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#PWR063") (unit 1)
         )
       )
     )
@@ -600,10 +607,10 @@
   (symbol (lib_id "Device:R_Small") (at 120.65 90.17 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4b133e36-f9b7-478f-b22f-83d0ea827a68)
-    (property "Reference" "R5" (at 120.65 92.6267 90)
+    (property "Reference" "R8" (at 120.65 92.6267 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "100k" (at 120.65 95.0509 90)
+    (property "Value" "200k" (at 120.65 95.0509 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 120.65 90.17 0)
@@ -615,17 +622,12 @@
     (pin "1" (uuid e354f954-96c9-4628-a3ec-f7396d7fb5f9))
     (pin "2" (uuid b2872138-c0f4-437c-a3cc-fc3b9c44c6e8))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347"
-          (reference "R5") (unit 1)
-        )
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "R16") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "R8") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "R11") (unit 1)
         )
       )
     )
@@ -634,7 +636,7 @@
   (symbol (lib_id "Device:C_Small") (at 107.95 90.17 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 5a40c722-9e92-4cd7-b815-2aa1ec45458d)
-    (property "Reference" "C3" (at 105.626 88.9642 0)
+    (property "Reference" "C6" (at 105.626 88.9642 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "1uF 35V" (at 105.626 91.3884 0)
@@ -652,17 +654,12 @@
     (pin "1" (uuid 05468e50-afb6-42ba-a6cc-33deaf1595f9))
     (pin "2" (uuid 0b244ac9-1a20-4220-911c-1153c2ccf44c))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347"
-          (reference "C3") (unit 1)
-        )
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "C9") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "C6") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "C13") (unit 1)
         )
       )
     )
@@ -671,7 +668,7 @@
   (symbol (lib_id "Regulator_Switching:LMR16006YQ") (at 138.43 90.17 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 62778f16-bb2f-4be6-829c-bd6b48612ea4)
-    (property "Reference" "U2" (at 138.43 78.4057 0)
+    (property "Reference" "U3" (at 138.43 78.4057 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "LMR16006YQ" (at 138.43 80.8299 0)
@@ -690,17 +687,12 @@
     (pin "5" (uuid 27cba9df-01e4-4556-bbc1-ba9424bf54f2))
     (pin "6" (uuid e18e2dae-b267-4f9c-a059-49144722b5e9))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347"
-          (reference "U2") (unit 1)
-        )
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "U2") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "U3") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "U4") (unit 1)
         )
       )
     )
@@ -709,7 +701,7 @@
   (symbol (lib_id "power:GND") (at 107.95 92.71 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 67ebcb7c-b64f-4282-9e14-29c8a638111e)
-    (property "Reference" "#PWR039" (at 107.95 99.06 0)
+    (property "Reference" "#PWR035" (at 107.95 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 107.95 96.8431 0)
@@ -723,14 +715,12 @@
     )
     (pin "1" (uuid 4c7be11a-37a6-4745-809b-7f306d40b360))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#PWR039") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#PWR035") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#PWR058") (unit 1)
         )
       )
     )
@@ -739,7 +729,7 @@
   (symbol (lib_id "power:GND") (at 138.43 100.33 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 6b144e78-2b6b-4e60-9120-522df421981e)
-    (property "Reference" "#PWR037" (at 138.43 106.68 0)
+    (property "Reference" "#PWR036" (at 138.43 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 138.43 104.4631 0)
@@ -753,14 +743,12 @@
     )
     (pin "1" (uuid 7d779ab9-12af-48ae-b16b-620caa598c7f))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#PWR037") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#PWR036") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#PWR059") (unit 1)
         )
       )
     )
@@ -783,14 +771,12 @@
     )
     (pin "1" (uuid 9242137c-ae85-40c0-b67b-a10c3726d805))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#FLG04") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#FLG04") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#FLG05") (unit 1)
         )
       )
     )
@@ -799,7 +785,7 @@
   (symbol (lib_id "Device:R_Small") (at 175.26 105.41 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 8f6a94e1-2032-43ae-b57f-3ae8ffcd9269)
-    (property "Reference" "R5" (at 176.7586 104.5753 0)
+    (property "Reference" "R10" (at 176.7586 104.5753 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10k" (at 176.7586 107.1122 0)
@@ -814,17 +800,12 @@
     (pin "1" (uuid 16843d1c-b2ad-435d-9be7-147176442762))
     (pin "2" (uuid 1ffde930-76a0-40e9-9b0b-fca39ee9436b))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347"
-          (reference "R5") (unit 1)
-        )
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "R14") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "R10") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "R13") (unit 1)
         )
       )
     )
@@ -833,7 +814,7 @@
   (symbol (lib_id "Device:C_Small") (at 201.93 95.25 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 97a58f8c-33b3-498f-a91e-3818c9edaf04)
-    (property "Reference" "C8" (at 204.2541 94.0442 0)
+    (property "Reference" "C9" (at 204.2541 94.0442 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uF 10V" (at 204.2541 96.4684 0)
@@ -848,14 +829,12 @@
     (pin "1" (uuid 6ab0d4b8-b6fa-4ed0-9d6a-b14b1e1d97dd))
     (pin "2" (uuid b04bfca4-feff-4b2f-839d-b4e1387c57a8))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "C8") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "C9") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "C16") (unit 1)
         )
       )
     )
@@ -864,7 +843,7 @@
   (symbol (lib_id "power:GND") (at 158.75 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9be71a93-9d1c-4876-92b7-4e083d3da693)
-    (property "Reference" "#PWR043" (at 158.75 102.87 0)
+    (property "Reference" "#PWR037" (at 158.75 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 158.75 100.6531 0)
@@ -878,14 +857,12 @@
     )
     (pin "1" (uuid 0299cdea-5a30-4fb6-9dbb-621968549146))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#PWR043") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#PWR037") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#PWR060") (unit 1)
         )
       )
     )
@@ -894,7 +871,7 @@
   (symbol (lib_id "Device:C_Small") (at 187.96 95.25 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid a0059a64-865f-42d1-9cb0-b6c7e539387e)
-    (property "Reference" "C7" (at 190.2841 94.0442 0)
+    (property "Reference" "C8" (at 190.2841 94.0442 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uF 10V" (at 190.2841 96.4684 0)
@@ -909,14 +886,12 @@
     (pin "1" (uuid 1ad7a3a3-b7d3-479e-b1d4-fd743bb62edb))
     (pin "2" (uuid 98b5b729-b9c5-4c9f-88a0-593984b0a8ca))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "C7") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "C8") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "C15") (unit 1)
         )
       )
     )
@@ -925,7 +900,7 @@
   (symbol (lib_id "Device:D_Schottky_Small") (at 158.75 93.98 270) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid afa6ecff-9baf-4c9c-bc3f-4bcdf6d93201)
-    (property "Reference" "D7" (at 160.528 92.5139 90)
+    (property "Reference" "D5" (at 160.528 92.5139 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "PMEG2020EH" (at 160.528 94.9381 90)
@@ -943,14 +918,12 @@
     (pin "1" (uuid a5ab7cb3-e963-4224-b109-d20e233174dd))
     (pin "2" (uuid 559c0d78-e39d-451d-922a-9ac313b073d8))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "D7") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "D5") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "D6") (unit 1)
         )
       )
     )
@@ -959,7 +932,7 @@
   (symbol (lib_id "power:GND") (at 95.25 92.71 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid b1f92664-c671-4334-8cc8-685b5577adc0)
-    (property "Reference" "#PWR047" (at 95.25 99.06 0)
+    (property "Reference" "#PWR034" (at 95.25 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 95.25 96.8431 0)
@@ -973,14 +946,12 @@
     )
     (pin "1" (uuid 8ccae3a9-6b67-4c4f-b949-4871c0b71f4d))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#PWR047") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#PWR034") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#PWR057") (unit 1)
         )
       )
     )
@@ -989,7 +960,7 @@
   (symbol (lib_id "power:GND") (at 187.96 97.79 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid bbb01310-0bd1-413b-b147-1e26f098a3a9)
-    (property "Reference" "#PWR042" (at 187.96 104.14 0)
+    (property "Reference" "#PWR039" (at 187.96 104.14 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 187.96 101.9231 0)
@@ -1003,14 +974,12 @@
     )
     (pin "1" (uuid 3719b3b6-eff8-465c-bb46-c0737b94ba3e))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#PWR042") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#PWR039") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#PWR062") (unit 1)
         )
       )
     )
@@ -1019,7 +988,7 @@
   (symbol (lib_id "power:GND") (at 175.26 109.22 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid bf9d8245-df7b-445d-93ee-6ace37c066e2)
-    (property "Reference" "#PWR040" (at 175.26 115.57 0)
+    (property "Reference" "#PWR038" (at 175.26 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 175.26 113.3531 0)
@@ -1033,14 +1002,12 @@
     )
     (pin "1" (uuid 7a5eb195-8d50-4eb6-8a0c-c5040b482447))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "#PWR040") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "#PWR038") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "#PWR061") (unit 1)
         )
       )
     )
@@ -1067,14 +1034,12 @@
     (pin "1" (uuid 4ae1f1c4-fe2d-4722-b304-5cd592b97008))
     (pin "2" (uuid 5489a7f5-b666-45f6-8d26-1aad912261d6))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "L1") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "L1") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "L2") (unit 1)
         )
       )
     )
@@ -1083,7 +1048,7 @@
   (symbol (lib_id "Device:C_Small") (at 154.94 85.09 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid f2b0078c-2e9e-4827-95da-bf4575ec8a74)
-    (property "Reference" "C5" (at 154.9463 79.8281 90)
+    (property "Reference" "C7" (at 154.9463 79.8281 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "100nF 50V" (at 154.9463 82.365 90)
@@ -1098,17 +1063,12 @@
     (pin "1" (uuid afe31ea5-70ad-445d-9538-56e9c619b687))
     (pin "2" (uuid 307e6468-ef6f-4906-b89d-8efa1bb4cf6d))
     (instances
-      (project "robotics_power_supply"
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347"
-          (reference "C5") (unit 1)
-        )
-        (path "/ca96ad49-b7b2-4aba-8a9b-826d8aaf4347/cadd76bb-c425-46b7-bbc5-de7c3306b507"
-          (reference "C6") (unit 1)
-        )
-      )
       (project "wakeuplight"
         (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/5a70dd9e-7f38-4000-902e-423cf3bc2c79"
           (reference "C7") (unit 1)
+        )
+        (path "/f5441fcc-7db8-443c-8d47-1d2e67dbd624/13491e2a-f343-4402-9e07-a7c1b4438024"
+          (reference "C14") (unit 1)
         )
       )
     )
