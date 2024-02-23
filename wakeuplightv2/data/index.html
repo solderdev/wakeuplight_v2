@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Wake-Up Light</title>
+    <meta name="description" content="wake-up-light">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <div class="header-div">
+    <div class="header-div-center">
+      <a class="header-text">
+        Good-Morning Alarm
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <button id="lights_on_button_id" class="control-buttons" type="button">Lights ON</button>
+    <button id="alarm_off_button_id" class="control-buttons" type="button">Alarm OFF</button>
+    <button id="alarm_on_button_id" class="control-buttons" type="button">Alarm ON</button>
+
+    <form id="alarm_time_form_id" class="container-input-form">
+      <label for="alarm_time_input_id" class="label-left">Alarm Start Time:</label>
+      <input type="time" required step="60" id="alarm_time_input_id" class="input-form" spellcheck="false" />
+    </form>
+
+    <form id="alarm_weekend_form_id" class="container-input-form">
+      <label for="alarm_weekend_input_id" class="label-left">Alarm on Weekends:</label>
+      <input type="checkbox" id="alarm_weekend_input_id" class="input-form" />
+    </form>
+
+    <form id="fade_minutes_form_id" class="container-input-form">
+      <label for="fade_minutes_input_id" class="label-left">Fade Minutes:</label>
+      <input type="number" id="fade_minutes_input_id" class="input-form" spellcheck="false" step="1" min="1" max="120" />
+    </form>
+
+    <form id="snooze_minutes_form_id" class="container-input-form">
+      <label for="snooze_minutes_input_id" class="label-left">Snooze Minutes:</label>
+      <input type="number" id="snooze_minutes_input_id" class="input-form" spellcheck="false" step="1" min="0" max="200" />
+    </form>
+
+    <form id="duty_lights_on_form_id" class="container-input-form">
+      <label for="duty_lights_on_input_id" class="label-left">Lights-on &#37;:</label>
+      <input type="range" id="duty_lights_on_input_id" class="range-slider" step="0.1" min="0.0" max="100.0" />
+    </form>
+
+    <div class="mode-div">
+      <a id="mode_id" class="mode-name">
+        initializing
+      </a>
+      <a id="mode_percent" class="mode-percent">
+        55%
+      </a>
+      <a id="mode_time" class="mode-time">
+        <b>00:00:00</b><p>last NTP sync:<br />31.12.2000 00:00:00</p>
+      </a>
+    </div>
+  </div>
+</body>
+
+<script src="logic.js"></script>
+</html>
