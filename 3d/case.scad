@@ -9,15 +9,17 @@ WALL_BOTTOM = 1.5;
 WALL_TOP = 1.5;
 WALL_tol = 0.25;
 
-EXTRA_SPACE_TOP_Y = 6;  // needed to insert PCB sandwitch in an angled motion
+EXTRA_SPACE_TOP_Y = 5.8;  // needed to insert PCB sandwitch in an angled motion
 
 PCB_X = 113.1;
 PCB_Y = 44.7;
 PCB_Z = 1.6;
 PCB_MNT_HOLE_EDGE_X = 3.2;  // from outer PCB edge
 PCB_MNT_HOLE_EDGE_Y = [PCB_Y/2 - 9.3, -PCB_Y/2 + 9.3];  // from outer PCB edge
+PCB_MNT_HOLE_MID_X = -PCB_X/2 + 61;  // from left PCB edge
+PCB_MNT_HOLE_MID_Y = PCB_Y/2 - 3.3;  // from outer PCB edge
+PCB_COMPONENTS_TOP = 18 + 3.4;  // account for hacky insert above audio jack
 PCB_COMPONENTS_BOT = 8;
-PCB_COMPONENTS_TOP = 13.8;
 PCB_MOUNTS_TOL = 0.15;
 
 POWER_IN_CENTER_OFF_X = 11.105;  // from left PCB edge
@@ -42,6 +44,11 @@ CON_USB_X = 15 + 0.5;
 CON_USB_Z = 7.6 + 0.5;
 CON_USB_CENTER_OFF_Z = -PCB_Z - CON_USB_Z/2 - PCB_MOUNTS_TOL + 0.1;
 
+CON_AUDIO_CENTER_OFF_X = 108;  // from left PCB edge
+CON_AUDIO_D = 6.5;
+CON_AUDIO_X = CON_AUDIO_D + 0.1;
+CON_AUDIO_Z = CON_AUDIO_X;
+CON_AUDIO_CENTER_OFF_Z = 13 - PCB_MOUNTS_TOL - 0.1;
 
 M3_HOLE_D = 3.4;
 INSERT_M3_HOLE_D = 4.01 + 0.3;
@@ -111,18 +118,33 @@ module case_bottom()
         translate([0, -EXTRA_SPACE_TOP_Y/2, -CASE_BOT_OFF_Z - WALL_BOTTOM - PCB_MOUNTS_TOL])  // move just slightly under PCB
         {
           mirror_copy([1, 0, 0], offset=(PCB_X - PCB_MNT_HOLE_EDGE_X*2)/2)
-          ycopies(PCB_MNT_HOLE_EDGE_Y)
-          difference()
-          {
-            union() {
+            ycopies(PCB_MNT_HOLE_EDGE_Y)
+              difference()
+              {
+                union() {
+                  cyl(h=1000, d=INSERT_M3_D + WALL_AROUND_INSERT*2, anchor=TOP);
+                  cube([10, INSERT_M3_D + WALL_AROUND_INSERT*2, 1000], anchor=TOP+LEFT);
+                }
+                translate([0, 0, OVERLAP])
+                  cyl(h=INSERT_DEPTH_PCB + OVERLAP, d=INSERT_M3_HOLE_D, anchor=TOP);
+              }
+          
+          // middle standoff
+          translate([PCB_MNT_HOLE_MID_X, PCB_MNT_HOLE_MID_Y, 0])
+            difference()
+            {
               cyl(h=1000, d=INSERT_M3_D + WALL_AROUND_INSERT*2, anchor=TOP);
-              cube([10, INSERT_M3_D + WALL_AROUND_INSERT*2, 1000], anchor=TOP+LEFT);
-            }
-            translate([0, 0, OVERLAP])
-              cyl(h=INSERT_DEPTH_PCB + OVERLAP, d=INSERT_M3_HOLE_D, anchor=TOP);
-          }
+              translate([0, 0, OVERLAP])
+                cyl(h=INSERT_DEPTH_PCB + OVERLAP, d=INSERT_M3_HOLE_D, anchor=TOP);
+            } 
         }
       }
+      
+      // hack to make room for badly placed audio module
+      translate([CASE_X/2 - WALL_SIDE - INSERT_M3_D/2 - WALL_AROUND_INSERT/2 - OVERLAP/2,
+                  -CASE_Y/2 + WALL_SIDE + INSERT_M3_D/2 + WALL_AROUND_INSERT/2 + OVERLAP/2,
+                  -CASE_BOT_OFF_Z])
+        cube([INSERT_M3_D + WALL_AROUND_INSERT + OVERLAP, INSERT_M3_D + WALL_AROUND_INSERT + OVERLAP, CON_AUDIO_CENTER_OFF_Z+2], anchor=BOT);
       
       // M3 inserts to mount case top lid
       translate([0, 0, CASE_BOT_Z + OVERLAP])
@@ -186,8 +208,7 @@ module case_bottom()
       cutout_front(CON_USB_X, CON_USB_Z, round_r=0, offset_center_x=CON_USB_CENTER_OFF_X, offset_center_z=CON_USB_CENTER_OFF_Z);
       
       // line out
-      
-      
+      cutout_front(CON_AUDIO_X, CON_AUDIO_Z, round_r=CON_AUDIO_D/2, offset_center_x=CON_AUDIO_CENTER_OFF_X, offset_center_z=CON_AUDIO_CENTER_OFF_Z);
     }
   }
 }
@@ -207,7 +228,6 @@ module case_top()
         ycopies(spacing=CASE_Y - WALL_SIDE*2 - INSERT_M3_D, n=2)
           cyl(h=WALL_TOP + OVERLAP*2, d=M3_HOLE_D, anchor=BOTTOM);
       
-      // TODO labels
       text_depth = 0.2;  // imprint depth
       text_h = text_depth + OVERLAP;  // height of subtractor
       
