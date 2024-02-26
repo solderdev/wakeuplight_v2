@@ -46,11 +46,15 @@ void setup()
   log_d("Hi there! Booting now..");
   log_d("CPU clock: %u MHz / using systime multiplier %u with ApbFrequency %u", getCpuFrequencyMhz(), systime_multiplier, getApbFrequency());
   
-  led_control = new LEDControl(Pins::pwm1, MCPWM_UNIT_0);
+  led_control = new LEDControl(Pins::pwm1, MCPWM_UNIT_0, Pins::en_top, Pins::en_bottom);
 
   alarm_control = new AlarmControl(led_control);
 
   web_interface = new WebInterface(alarm_control);
+
+  // TODO audio
+  pinMode(Pins::disable_audio_pwr, OUTPUT);
+  digitalWrite(Pins::disable_audio_pwr, HIGH);
 
   // change NTP update interval
   sntp_set_sync_interval(1 * 60 * 60 * 1000UL); // 1 hours

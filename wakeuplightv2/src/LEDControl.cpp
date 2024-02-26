@@ -7,12 +7,19 @@
 // alternative to switch off with one-shot: https://demo-dijiudu.readthedocs.io/en/latest/api-reference/system/esp_timer.html
 
 
-LEDControl::LEDControl(uint8_t pwm_pin, mcpwm_unit_t mcpwm_unit_id) :
+LEDControl::LEDControl(uint8_t pwm_pin, mcpwm_unit_t mcpwm_unit_id, uint8_t en_top_pin, uint8_t en_bottom_pin) :
   mcpwm_unit_(mcpwm_unit_id), 
-  pwm_pin(pwm_pin)
+  pwm_pin(pwm_pin),
+  en_top_pin(en_top_pin),
+  en_bottom_pin(en_bottom_pin)
 {
-  this->frequency_hz_ = 300;
+  this->frequency_hz_ = 150;
   this->duty_percent_ = 50.0f;
+
+  pinMode(en_top_pin, OUTPUT);
+  pinMode(en_bottom_pin, OUTPUT);
+  digitalWrite(en_top_pin, LOW);
+  digitalWrite(en_bottom_pin, LOW);
   
   log_d("init mcpwm driver");
   this->updateTiming(this->frequency_hz_, this->duty_percent_);
@@ -57,6 +64,8 @@ void LEDControl::updateTiming(uint32_t frequency_hz, float duty_percent)
 
     // activate timer output
     mcpwm_set_timer_sync_output(this->mcpwm_unit_, MCPWM_TIMER_0, MCPWM_SWSYNC_SOURCE_TEZ);
+    digitalWrite(en_top_pin, HIGH);
+    digitalWrite(en_bottom_pin, HIGH);
   }
 
   mcpwm_set_duty(this->mcpwm_unit_, MCPWM_TIMER_0, MCPWM_GEN_A, duty_percent);  // 100.0f - 
@@ -91,6 +100,8 @@ void LEDControl::setOnMode(void)
   if (this->mode != LEDMODE_ON) {
     this->mode = LEDMODE_ON;
     mcpwm_set_signal_high(this->mcpwm_unit_, MCPWM_TIMER_0, MCPWM_GEN_A);
+    digitalWrite(en_top_pin, HIGH);
+    digitalWrite(en_bottom_pin, HIGH);
   }
 }
 
@@ -99,6 +110,8 @@ void LEDControl::setOffMode(void)
   if (this->mode != LEDMODE_OFF) {
     this->mode = LEDMODE_OFF;
     mcpwm_set_signal_low(this->mcpwm_unit_, MCPWM_TIMER_0, MCPWM_GEN_A);
+    digitalWrite(en_top_pin, LOW);
+    digitalWrite(en_bottom_pin, LOW);
   }
 }
 

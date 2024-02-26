@@ -12,7 +12,7 @@ public:
     LEDMODE_PWM = 2
   } LEDMode_t;
 
-  LEDControl(uint8_t pwm_pin, mcpwm_unit_t mcpwm_unit_id);
+  LEDControl(uint8_t pwm_pin, mcpwm_unit_t mcpwm_unit_id, uint8_t en_top_pin, uint8_t en_bottom_pin);
   LEDControl(LEDControl const&) = delete;
   void operator=(LEDControl const&)  = delete;
 
@@ -29,6 +29,8 @@ public:
 private:
   uint8_t pwm_pin;
   mcpwm_unit_t mcpwm_unit_;
+  uint8_t en_top_pin;
+  uint8_t en_bottom_pin;
   uint32_t frequency_hz_;
   float duty_percent_;
   LEDMode_t mode = LEDMODE_PWM; //on == 0, off == 1, pwm == 2
