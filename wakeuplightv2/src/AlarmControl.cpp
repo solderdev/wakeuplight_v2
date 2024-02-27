@@ -409,7 +409,7 @@ void AlarmControl::task_alarm()
       else
       {
         // we are after fading time
-        log_d("outside of fading time. min diff: %f", minutes_diff);
+        // log_d("outside of fading time. min diff: %f", minutes_diff);
         this->led_control_->setOffMode();
         this->current_duty_ = 0.0f;
       }

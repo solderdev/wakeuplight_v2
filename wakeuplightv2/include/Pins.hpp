@@ -11,4 +11,7 @@ public:
   static constexpr uint32_t button_1 = 17;
   static constexpr uint32_t button_2 = 16;
   static constexpr uint32_t disable_audio_pwr = 14;
+  static constexpr uint32_t i2s_dout = 18;
+  static constexpr uint32_t i2s_bclk = 4;
+  static constexpr uint32_t i2s_lrc = 5;
 };

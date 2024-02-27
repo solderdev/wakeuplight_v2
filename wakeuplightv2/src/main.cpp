@@ -6,6 +6,7 @@
 #include "Pins.hpp"
 #include "LEDControl.hpp"
 #include "AlarmControl.hpp"
+#include "InternetRadio.hpp"
 
 #include "time.h"
 
@@ -14,6 +15,7 @@
 
 WebInterface *web_interface;
 LEDControl *led_control;
+InternetRadio *internet_radio;
 AlarmControl *alarm_control;
 
 static uint32_t systime_multiplier = 1;
@@ -47,7 +49,8 @@ void setup()
   log_d("CPU clock: %u MHz / using systime multiplier %u with ApbFrequency %u", getCpuFrequencyMhz(), systime_multiplier, getApbFrequency());
   
   led_control = new LEDControl(Pins::pwm1, MCPWM_UNIT_0, Pins::en_top, Pins::en_bottom);
-
+  internet_radio = new InternetRadio();
+  
   alarm_control = new AlarmControl(led_control);
 
   web_interface = new WebInterface(alarm_control);
@@ -69,7 +72,9 @@ void setup()
 
 void loop()
 {
-  vTaskDelay(pdMS_TO_TICKS(5551));
+  internet_radio->loop();
+
+  // vTaskDelay(pdMS_TO_TICKS(5551));
   // log_d("ON");
   // led_control->setOnMode();
   // vTaskDelay(pdMS_TO_TICKS(3000));
