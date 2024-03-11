@@ -150,7 +150,7 @@ void AlarmControl::setOnMode(void)
       this->timeinfo_.tm_hour * 60 + this->timeinfo_.tm_min < this->sunset_minutes)
     new_duty = this->duty_max_;
   else
-    new_duty = 20;
+    new_duty = 10;
   this->current_duty_ = new_duty;
   this->duty_lights_on_ = new_duty;
   this->setMode(ALARMMODE_FORCE_ON);

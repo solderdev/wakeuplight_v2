@@ -13,7 +13,7 @@ LEDControl::LEDControl(uint8_t pwm_pin, mcpwm_unit_t mcpwm_unit_id, uint8_t en_t
   en_top_pin(en_top_pin),
   en_bottom_pin(en_bottom_pin)
 {
-  this->frequency_hz_ = 150;
+  this->frequency_hz_ = 600;
   this->duty_percent_ = 50.0f;
 
   pinMode(en_top_pin, OUTPUT);
