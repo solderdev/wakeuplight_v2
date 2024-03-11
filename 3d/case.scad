@@ -231,14 +231,10 @@ module case_top()
       text_depth = 0.2;  // imprint depth
       text_h = text_depth + OVERLAP;  // height of subtractor
       
-      // "" on one line
-      translate([0, 4, WALL_TOP + text_h/2 - text_depth])
+      // label
+      translate([0, 0, WALL_TOP + text_h/2 - text_depth])
         linear_extrude(height=text_h, center=true)
-          text("Wakeuplight v2", size=6, font="Liberation Sans:style=Bold Italic", 
-               halign="center", valign="center", $fn=16);
-      translate([0, -5, WALL_TOP + text_h/2 - text_depth])
-        linear_extrude(height=text_h, center=true)
-          text("by Solderdev", size=4, font="Liberation Sans:style=Bold Italic", 
+          text("Wakeuplight v2", size=7, font="Liberation Sans:style=Bold Italic", 
                halign="center", valign="center", $fn=16);
     }
       
