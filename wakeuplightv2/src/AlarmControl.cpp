@@ -3,6 +3,7 @@
 #include "TaskConfig.hpp"
 #include "esp_sntp.h"
 #include "sunset.h"
+#include "Pins.hpp"
 
 
 #define LATITUDE        47.073540
@@ -87,6 +88,9 @@ AlarmControl::AlarmControl(LEDControl *led_control) :
 
   this->sunrise_minutes = 8 * 60;
   this->sunset_minutes = 20 * 60;
+
+  pinMode(Pins::button_1, INPUT);
+  pinMode(Pins::button_2, INPUT);
 
   log_i("Initialized Alarm with: alarm_time_=%s alarm_weekend_=%s fade_minutes_=%u duty_max_=%.2f duty_lights_on=%.2f snooze_minutes=%u", 
         this->alarm_time_, (this->alarm_weekend_)?"true":"false", this->fade_minutes_, this->duty_max_, this->duty_lights_on_, this->snooze_minutes_);
@@ -273,6 +277,9 @@ void AlarmControl::task_alarm()
   float duty_calc;
   float minutes_diff;
   float exp_calc_max, exp_calc_min;
+  enum Buttonstate {pressed, released} button_state = released;
+  AlarmControl::AlarmMode_t mode_before_button = ALARMMODE_LIMIT;
+  AlarmControl::AlarmMode_t mode_by_button = ALARMMODE_LIMIT;
 
   this->led_control_->setOffMode();
 
@@ -281,6 +288,57 @@ void AlarmControl::task_alarm()
   
   while (1)
   {
+    // check if state update from web happened --> mode_before_button = ALARMMODE_LIMIT;
+    if (mode_by_button != this->mode_) {
+      mode_before_button = ALARMMODE_LIMIT;
+    }
+
+    if (digitalRead(Pins::button_1) == LOW || digitalRead(Pins::button_2) == LOW)
+    {
+      // button is pressed
+      if (button_state != pressed)
+      {
+        if (mode_before_button < ALARMMODE_LIMIT)
+        {
+          log_d("button pressed --> re-set to old mode!");
+          // reset to original state
+          switch (mode_before_button)
+          {
+          case ALARMMODE_ALARM_OFF:
+            setAlarmOFF();
+            break;
+          case ALARMMODE_ALARM_ON:
+            setAlarmON();
+            break;
+          case ALARMMODE_FORCE_ON:
+            setOnMode();
+            break;
+          default:
+            break;
+          }
+          mode_before_button = ALARMMODE_LIMIT;
+        }
+        else
+        {
+          // change state
+          log_d("button pressed --> custom mode!");
+          mode_before_button = this->mode_;
+          // check if LED is currently on --> OFF!
+          if (this->led_control_->getMode() != LEDControl::LEDMODE_OFF) {
+            setAlarmON();
+          } else {
+            setOnMode();
+          }
+          mode_by_button = this->mode_;
+        }
+        button_state = pressed;
+      }
+    }
+    else
+    {
+      button_state = released;
+    }
+
     vTaskDelay(pdMS_TO_TICKS(100));
 
     // check and save new values
