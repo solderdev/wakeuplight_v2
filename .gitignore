@@ -5,3 +5,7 @@
 .vscode/ipch
 .idea
 .venv
+.memsearch/
+*.step
+*.wrl
+**/.vscode/arduino.json
