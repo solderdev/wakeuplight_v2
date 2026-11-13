@@ -47,6 +47,7 @@ void setup()
   delay(2000);
   log_d("Hi there! Booting now..");
   log_d("CPU clock: %u MHz / using systime multiplier %u with ApbFrequency %u", getCpuFrequencyMhz(), systime_multiplier, getApbFrequency());
+  log_d("Free heap: %lu", (long unsigned int)ESP.getFreeHeap());
   
   led_control = new LEDControl(Pins::pwm1, MCPWM_UNIT_0, Pins::en_top, Pins::en_bottom);
   internet_radio = new InternetRadio();
@@ -65,7 +66,7 @@ void setup()
   // time-zone needs to be set manually, otherwise DST switch date is wrong
   // by https://werner.rothschopf.net/microcontroller/202103_arduino_esp32_ntp_en.htm
   configTime(0, 0, "time.metrologie.at");
-  // list of TZ strings: https://github.com/nayarsystems/posix_tz_db/eblob/master/zones.csv
+  // list of TZ strings: https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
   setenv("TZ", "CET-1CEST,M3.5.0,M10.5.0/3", 1);           // Set environment variable with your time zone
   tzset();
 }
